@@ -1,11 +1,10 @@
-import { Component, ElementRef, ViewEncapsulation, Renderer, ViewChild } from '@angular/core';
+import { Component, ElementRef, Renderer, ViewChild, ViewEncapsulation } from '@angular/core';
 import {
-  BlockerDelegate, GestureController, ViewController, BLOCK_ALL, Config, NavParams,
-  Slides
+  BLOCK_ALL, BlockerDelegate, Config, GestureController, NavParams, Slides, ViewController
 } from 'ionic-angular';
-import { Step } from './step';
-import { HighlightEvent } from './highlight';
 import _ from 'lodash';
+import { HighlightEvent } from './highlight';
+import { Step } from './step';
 
 /**
  * @private
