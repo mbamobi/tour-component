@@ -14,18 +14,14 @@ var __extends = (this && this.__extends) || (function () {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "@angular/core", "ionic-angular", "./tour-component", "./step", "./highlight"], factory);
+        define(["require", "exports", "@angular/core", "ionic-angular", "./tour.component"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var core_1 = require("@angular/core");
     var ionic_angular_1 = require("ionic-angular");
-    var tour_component_1 = require("./tour-component");
-    var step_1 = require("./step");
-    exports.Step = step_1.Step;
-    var highlight_1 = require("./highlight");
-    exports.Highlight = highlight_1.Highlight;
+    var tour_component_1 = require("./tour.component");
     var Tour = (function (_super) {
         __extends(Tour, _super);
         function Tour(app, opts) {
@@ -55,14 +51,14 @@ var __extends = (this && this.__extends) || (function () {
         TourController.prototype.create = function (opts) {
             return new Tour(this.app, opts);
         };
+        TourController.decorators = [
+            { type: core_1.Injectable },
+        ];
+        TourController.ctorParameters = function () { return [
+            { type: ionic_angular_1.App, },
+        ]; };
         return TourController;
     }());
-    TourController.decorators = [
-        { type: core_1.Injectable },
-    ];
-    TourController.ctorParameters = function () { return [
-        { type: ionic_angular_1.App, },
-    ]; };
     exports.TourController = TourController;
 });
 //# sourceMappingURL=tour.js.map

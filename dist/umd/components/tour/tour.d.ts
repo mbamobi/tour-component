@@ -1,7 +1,5 @@
-import { ViewController, App, NavOptions } from 'ionic-angular';
+import { App, NavOptions, ViewController } from 'ionic-angular';
 import { Step } from './step';
-export { Step } from './step';
-export { Highlight } from './highlight';
 export declare class Tour extends ViewController {
     private app;
     constructor(app: App, opts: TourOptions);

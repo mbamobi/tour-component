@@ -4,7 +4,7 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./module", "./components/tour/tour", "./components/tour/step", "./components/tour/highlight", "./components/tour/highlight-element"], factory);
+        define(["require", "exports", "./module", "./components/tour/tour", "./components/tour/step", "./components/tour/highlight", "./components/tour/highlight.element"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -18,7 +18,7 @@
     exports.Step = step_1.Step;
     var highlight_1 = require("./components/tour/highlight");
     exports.Highlight = highlight_1.Highlight;
-    var highlight_element_1 = require("./components/tour/highlight-element");
+    var highlight_element_1 = require("./components/tour/highlight.element");
     exports.HighlightElement = highlight_element_1.HighlightElement;
 });
 //# sourceMappingURL=index.js.map

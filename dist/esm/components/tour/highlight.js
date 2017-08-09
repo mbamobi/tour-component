@@ -1,4 +1,4 @@
-import { HighlightElement } from './highlight-element';
+import { HighlightElement } from './highlight.element';
 var elCls = 'highlight';
 var elClsPrefix = 'tour-highlight-';
 var descriptionClsPrefix = 'tour-description-';

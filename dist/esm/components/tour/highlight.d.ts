@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-import { HighlightElement } from './highlight-element';
+import { HighlightElement } from './highlight.element';
 export declare class Highlight {
     el: ElementRef | Array<ElementRef>;
     options: HighlightOptions;

@@ -4,12 +4,12 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./highlight-element"], factory);
+        define(["require", "exports", "./highlight.element"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var highlight_element_1 = require("./highlight-element");
+    var highlight_element_1 = require("./highlight.element");
     var elCls = 'highlight';
     var elClsPrefix = 'tour-highlight-';
     var descriptionClsPrefix = 'tour-description-';

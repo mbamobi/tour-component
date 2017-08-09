@@ -9,10 +9,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import { Injectable } from '@angular/core';
-import { ViewController, App } from 'ionic-angular';
-import { TourComponent } from './tour-component';
-export { Step } from './step';
-export { Highlight } from './highlight';
+import { App, ViewController } from 'ionic-angular';
+import { TourComponent } from './tour.component';
 var Tour = (function (_super) {
     __extends(Tour, _super);
     function Tour(app, opts) {
@@ -42,13 +40,13 @@ var TourController = (function () {
     TourController.prototype.create = function (opts) {
         return new Tour(this.app, opts);
     };
+    TourController.decorators = [
+        { type: Injectable },
+    ];
+    TourController.ctorParameters = function () { return [
+        { type: App, },
+    ]; };
     return TourController;
 }());
 export { TourController };
-TourController.decorators = [
-    { type: Injectable },
-];
-TourController.ctorParameters = function () { return [
-    { type: App, },
-]; };
 //# sourceMappingURL=tour.js.map

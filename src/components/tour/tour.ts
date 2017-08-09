@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { App, NavOptions, ViewController } from 'ionic-angular';
+import { Step } from './step';
 import { TourComponent } from './tour.component';
-
-export { Highlight } from './highlight';
-export { Step } from './step';
 
 export class Tour extends ViewController {
 
