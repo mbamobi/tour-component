@@ -1,0 +1,24 @@
+# Specifies files to intentionally ignore when using Git
+
+.project
+.settings
+.buildpath
+*.sublime-project
+.idea
+.vscode
+.history
+*.sublime-workspace
+*.iws
+*.iml
+npm-*
+
+node_modules/
+.nyc_output/
+dist/
+doc/
+coverage/
+*.swp
+.DS_Store
+Thumbs.db
+
+*.ngfactory.ts

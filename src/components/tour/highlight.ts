@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-import { HighlightElement } from './highlight-element';
+import { HighlightElement } from './highlight.element';
 
 const elCls = 'highlight';
 const elClsPrefix = 'tour-highlight-';
