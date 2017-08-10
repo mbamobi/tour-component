@@ -11,6 +11,7 @@ import { Step } from './step';
  */
 @Component({
   selector: 'tour',
+  styleUrls: ['tour.scss'],
   template: `
     <div class="tour modal-wrapper">
       <div #bd class="tour-bd"></div>
