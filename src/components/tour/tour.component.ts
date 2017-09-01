@@ -17,7 +17,7 @@ import { Step } from './step';
       <ion-slides [pager]="true" (ionSlideDidChange)="bindElements()">
         <ion-slide *ngFor="let slide of slides"></ion-slide>
       </ion-slides>
-      <div class="center-button">
+      <div class="center-button" *ngIf="verifyCloseButton()">
         <button ion-button clear class="close" (click)="dismiss('backdrop')">
           <ion-icon name="md-close" class="icon"></ion-icon>
         </button>
@@ -36,6 +36,7 @@ export class TourComponent {
   steps: Array<Step>;
   slides: Array<{ elements: any, loaded: boolean, events: Array<HighlightEvent> }> = [];
   gestureBlocker: BlockerDelegate;
+  showCloseOnlyOnLastPage: boolean = false;
 
   constructor(private viewController: ViewController,
               private elementRef: ElementRef,
@@ -44,6 +45,8 @@ export class TourComponent {
               renderer: Renderer,
               gestureCtrl: GestureController) {
     this.steps = navParams.get('steps');
+
+    this.showCloseOnlyOnLastPage = navParams.get('showCloseOnlyOnLastPage');
 
     this.steps.forEach((step: Step, index) => this.addStep(step, index));
 
@@ -69,6 +72,17 @@ export class TourComponent {
 
   ngOnDestroy() {
     this.gestureBlocker.destroy();
+  }
+
+  verifyCloseButton() {
+    if (!this.showCloseOnlyOnLastPage) {
+      return true;
+    }
+    let currentIndex = this.slider.getActiveIndex();
+    if (currentIndex === this.slides.length - 1) {
+      return true;
+    }
+    return false;
   }
 
   private hideShownElements(): Promise<any> {

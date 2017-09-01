@@ -11,7 +11,7 @@
 *.iws
 *.iml
 npm-*
-
+dist/
 node_modules/
 .nyc_output/
 dist/

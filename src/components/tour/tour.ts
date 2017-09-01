@@ -42,4 +42,5 @@ export class TourController {
 export interface TourOptions {
   dismissOnPageChange?: boolean;
   steps: Array<Step>;
+  showCloseOnlyOnLastPage?: boolean;
 }

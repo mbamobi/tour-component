@@ -33,6 +33,12 @@ export class Highlight {
       highlights.push(new HighlightElement(description));
     }
 
+    if (this.options.pointerToHighlight) {
+      let pointer = document.createElement('div');
+      pointer.classList.add(this.options.cls + '-pointer');
+      highlights.unshift(new HighlightElement(pointer));
+    }
+
     if (!this.els) {
       return Promise.resolve(highlights);
     }
@@ -153,6 +159,7 @@ export interface HighlightOptions {
     offsetBottom?: number,
     offsetLeft?: number
   };
+  pointerToHighlight?: boolean;
 }
 
 export interface HighlightEvent {

@@ -24,6 +24,11 @@ var Highlight = (function () {
         else {
             highlights.push(new HighlightElement(description));
         }
+        if (this.options.pointerToHighlight) {
+            var pointer = document.createElement('div');
+            pointer.classList.add(this.options.cls + '-pointer');
+            highlights.unshift(new HighlightElement(pointer));
+        }
         if (!this.els) {
             return Promise.resolve(highlights);
         }

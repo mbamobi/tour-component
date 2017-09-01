@@ -35,6 +35,11 @@
             else {
                 highlights.push(new highlight_element_1.HighlightElement(description));
             }
+            if (this.options.pointerToHighlight) {
+                var pointer = document.createElement('div');
+                pointer.classList.add(this.options.cls + '-pointer');
+                highlights.unshift(new highlight_element_1.HighlightElement(pointer));
+            }
             if (!this.els) {
                 return Promise.resolve(highlights);
             }

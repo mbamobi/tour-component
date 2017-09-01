@@ -26,6 +26,7 @@ export interface HighlightOptions {
         offsetBottom?: number;
         offsetLeft?: number;
     };
+    pointerToHighlight?: boolean;
 }
 export interface HighlightEvent {
     before?: (...args: any[]) => void;
