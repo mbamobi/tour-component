@@ -1,26 +1,69 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# Tour Component
 
-## How to use this template
+Componente que cria um overlay, destacando algum elemento da tela, para exemplificar/explicar algo.
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+![](tour.png)
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+## Como instalar?
+* Utilize o comando:
+```sh
+npm install @mbamobi/tour-component
 ```
 
-Then, to run it, cd into `myBlank` and run:
+## Como utilizar?
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+```typescript
+import { NgModule } from '@angular/core';
+import { IonicApp, IonicModule } from 'ionic-angular';
+import { MyApp } from './app.component';
+
+import { TourComponentModule } from '@mbamobi/tour-component';
+
+@NgModule({
+  declarations: [
+    MyApp
+  ],
+  imports: [
+    IonicModule.forRoot(MyApp),
+    TourComponentModule
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp
+  ]
+})
 ```
 
-Substitute ios for android if not on a Mac.
+Na page (.ts) onde se quer colocar, refereciar o(s) elemento(s) a ser(em) colocardo(s) no overlay. E carregar os passos do tutorial:
 
+```typescript
+@ViewChild('elemento') elemento;
+@ViewChild('elemento2') elemento2;
+
+...
+
+carregarTour() {
+  let step1 = new Step();
+  step1.addHighlight(new Highlight(this.elemento.getElementRef(), {
+    cls: 'tour-elemento',
+    title: 'Titulo elemento',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    event: {
+      before: () => this.content.scrollTo(0, 0)
+    }
+  }));
+  let step2 = new Step();
+  step2.addHighlight(new Highlight(this.elemento2.getElementRef(), {
+    cls: 'tour-elemento-2',
+    title: 'Titulo elemento 2',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    event: {
+      before: () => this.content.scrollTo(0, 0)
+    },
+    pointerToHighlight: true //este parâmetro insere uma div após o elemento (dentro do overlay).
+  }));
+  let tour = this.tourCtrl.create({steps: [ step1, step2 ], showCloseOnlyOnLastPage: true});
+  tour.present();
+}
+
+```
