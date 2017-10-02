@@ -1,16 +1,17 @@
 import { ElementRef } from '@angular/core';
 import { HighlightElement } from './highlight.element';
 export declare class Highlight {
-    el: ElementRef | Array<ElementRef>;
+    el: ElementRef | Array<ElementRef> | any;
     options: HighlightOptions;
     private els;
-    constructor(el?: ElementRef | Array<ElementRef>, options?: HighlightOptions);
+    constructor(el?: ElementRef | Array<ElementRef> | any, options?: HighlightOptions);
     elements(): Promise<Array<HighlightElement | string>>;
     renderDescription(): HTMLElement;
     private cloneElement(el);
     private defaultCss(clientRect);
     private deepCopyComputedStyle(elFrom, elTo);
     private stylePropertyValid(name, value);
+    private getNativeElement(el);
 }
 export interface HighlightOptions {
     cls?: string;

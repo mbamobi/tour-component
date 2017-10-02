@@ -10,7 +10,7 @@ export class Highlight {
   private els: Array<ElementRef>;
 
   constructor(
-    public el?: ElementRef | Array<ElementRef>,
+    public el?: ElementRef | Array<ElementRef> | any,
     public options?: HighlightOptions
   ) {
     if (el && !Array.isArray(this.el)) {
@@ -47,8 +47,8 @@ export class Highlight {
       return sequence.then(() => {
         return new Promise(res => {
           this.cloneElement(el).then((newEl) => {
-            highlights.push(new HighlightElement(el.nativeElement, newEl));
-            highlights[0].boundingRectRefElements.push(el.nativeElement);
+            highlights.push(new HighlightElement(this.getNativeElement(el), newEl));
+            highlights[0].boundingRectRefElements.push(this.getNativeElement(el));
             res();
           });
         });
@@ -79,11 +79,11 @@ export class Highlight {
 
   private cloneElement(el): Promise<Node> {
     return new Promise(resolve => {
-      let clone = el.nativeElement.cloneNode(true);
+      let clone = this.getNativeElement(el).cloneNode(true);
 
-      this.defaultCss(el.nativeElement.getBoundingClientRect());
+      this.defaultCss(this.getNativeElement(el).getBoundingClientRect());
 
-      this.deepCopyComputedStyle(el.nativeElement, clone).then(() => {
+      this.deepCopyComputedStyle(this.getNativeElement(el), clone).then(() => {
         Object.keys(this.options.css).forEach((property) => {
           if (this.options.css[property].indexOf('!important')) {
             clone.style.setProperty(property, this.options.css[property].replace('!important', ''), 'important');
@@ -145,6 +145,11 @@ export class Highlight {
       && (this.options.css && Object.keys(this.options.css).indexOf(name) < 0)
       && value !== parseInt(value, 10);
   }
+
+  private getNativeElement(el) {
+    return el.nativeElement || el;
+  }
+
 }
 
 export interface HighlightOptions {

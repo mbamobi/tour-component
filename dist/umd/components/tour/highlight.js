@@ -47,8 +47,8 @@
                 return sequence.then(function () {
                     return new Promise(function (res) {
                         _this.cloneElement(el).then(function (newEl) {
-                            highlights.push(new highlight_element_1.HighlightElement(el.nativeElement, newEl));
-                            highlights[0].boundingRectRefElements.push(el.nativeElement);
+                            highlights.push(new highlight_element_1.HighlightElement(_this.getNativeElement(el), newEl));
+                            highlights[0].boundingRectRefElements.push(_this.getNativeElement(el));
                             res();
                         });
                     });
@@ -72,9 +72,9 @@
         Highlight.prototype.cloneElement = function (el) {
             var _this = this;
             return new Promise(function (resolve) {
-                var clone = el.nativeElement.cloneNode(true);
-                _this.defaultCss(el.nativeElement.getBoundingClientRect());
-                _this.deepCopyComputedStyle(el.nativeElement, clone).then(function () {
+                var clone = _this.getNativeElement(el).cloneNode(true);
+                _this.defaultCss(_this.getNativeElement(el).getBoundingClientRect());
+                _this.deepCopyComputedStyle(_this.getNativeElement(el), clone).then(function () {
                     Object.keys(_this.options.css).forEach(function (property) {
                         if (_this.options.css[property].indexOf('!important')) {
                             clone.style.setProperty(property, _this.options.css[property].replace('!important', ''), 'important');
@@ -129,6 +129,9 @@
                 && name.indexOf('opacity') === -1
                 && (this.options.css && Object.keys(this.options.css).indexOf(name) < 0)
                 && value !== parseInt(value, 10);
+        };
+        Highlight.prototype.getNativeElement = function (el) {
+            return el.nativeElement || el;
         };
         return Highlight;
     }());
