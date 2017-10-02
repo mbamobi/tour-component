@@ -1,3 +1,22 @@
+<a name="0.0.6"></a>
+## 0.0.6 (2017-10-02)
+
+
+### Bug Fixes
+
+* adaptando estrutura para o módulo ([053004b](https://github.com/mbamobi/tour-component/commit/053004b))
+* ajuste readme projeto ([390af48](https://github.com/mbamobi/tour-component/commit/390af48))
+* build qa ([cee7bd3](https://github.com/mbamobi/tour-component/commit/cee7bd3))
+* **scss:** copiando scss ([0406f5a](https://github.com/mbamobi/tour-component/commit/0406f5a))
+
+
+### Features
+
+* Ajuste para aceitar nativeElement ou elementRef ([6590360](https://github.com/mbamobi/tour-component/commit/6590360))
+* pointerToHighlight ([7032573](https://github.com/mbamobi/tour-component/commit/7032573))
+
+
+
 <a name="0.0.5"></a>
 ## 0.0.5 (2017-09-12)
 

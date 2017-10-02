@@ -14,7 +14,7 @@ import { Step } from './step';
   template: `
     <div class="tour modal-wrapper">
       <div #bd class="tour-bd"></div>
-      <ion-slides [pager]="true" (ionSlideDidChange)="bindElements()">
+      <ion-slides [effect]="effectSlide" [pager]="true" (ionSlideDidChange)="bindElements()">
         <ion-slide *ngFor="let slide of slides"></ion-slide>
       </ion-slides>
       <div class="center-button" *ngIf="verifyCloseButton()">
@@ -37,6 +37,7 @@ export class TourComponent {
   slides: Array<{ elements: any, loaded: boolean, events: Array<HighlightEvent> }> = [];
   gestureBlocker: BlockerDelegate;
   showCloseOnlyOnLastPage: boolean = false;
+  effectSlide: string = 'slide';
 
   constructor(private viewController: ViewController,
               private elementRef: ElementRef,
@@ -47,6 +48,7 @@ export class TourComponent {
     this.steps = navParams.get('steps');
 
     this.showCloseOnlyOnLastPage = navParams.get('showCloseOnlyOnLastPage');
+    this.effectSlide = navParams.get('effectSlide') ? navParams.get('effectSlide') : 'slide';
 
     this.steps.forEach((step: Step, index) => this.addStep(step, index));
 

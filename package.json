@@ -1,6 +1,6 @@
 {
   "name": "@mbamobi/tour-component",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "mbamobi.com.br",
   "typings": "dist/esm/index.d.ts",
   "main": "dist/umd/index.js",

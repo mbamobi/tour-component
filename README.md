@@ -62,7 +62,8 @@ carregarTour() {
     },
     pointerToHighlight: true //este parâmetro insere uma div após o elemento (dentro do overlay).
   }));
-  let tour = this.tourCtrl.create({steps: [ step1, step2 ], showCloseOnlyOnLastPage: true});
+  // Para opções do slideEffect, [veja](https://ionicframework.com/docs/api/components/slides/Slides/#input-properties)
+  let tour = this.tourCtrl.create({steps: [ step1, step2 ], showCloseOnlyOnLastPage: true, slideEffect: 'fade'});
   tour.present();
 }
 
