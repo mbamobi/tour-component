@@ -81,7 +81,7 @@ export class TourComponent {
       return true;
     }
     let currentIndex = this.slider.getActiveIndex();
-    if (currentIndex === this.slides.length - 1) {
+    if (currentIndex >= this.slides.length - 1) {
       return true;
     }
     return false;
