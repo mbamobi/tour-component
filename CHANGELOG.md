@@ -1,3 +1,8 @@
+<a name="0.0.11"></a>
+## [0.0.11](https://github.com/mbamobi/tour-component/compare/0.0.10...0.0.11) (2017-11-21)
+
+
+
 <a name="0.0.8"></a>
 ## 0.0.8 (2017-10-02)
 
