@@ -140,6 +140,7 @@ export class Highlight {
       && typeof value !== 'object'
       && typeof value !== 'function'
       && value.length > 0
+      && /\D/.test(name)  // ignorar se `name` for um número
       && name.indexOf('transition') === -1
       && name.indexOf('opacity') === -1
       && (this.options.css && Object.keys(this.options.css).indexOf(name) < 0)
