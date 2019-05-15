@@ -1,3 +1,10 @@
+<a name="0.0.12"></a>
+## [0.0.12](https://github.com/mbamobi/tour-component/compare/0.0.11...0.0.12) (2019-05-14)
+
+* corrigindo problemas com Android rodando Chrome 74
+
+
+
 <a name="0.0.11"></a>
 ## [0.0.11](https://github.com/mbamobi/tour-component/compare/0.0.10...0.0.11) (2017-11-21)
 
