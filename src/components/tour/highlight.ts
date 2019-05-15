@@ -142,7 +142,7 @@ export class Highlight {
       && value.length > 0
       && /\D/.test(name)  // ignorar se `name` for um número
       && name.indexOf('transition') === -1
-      && name.indexOf('opacity') === -1
+      && !/[oO]pacity/.test(name)  // ignorar tanto 'opacity' quanto 'webkitOpacity'
       && (this.options.css && Object.keys(this.options.css).indexOf(name) < 0)
       && value !== parseInt(value, 10);
   }

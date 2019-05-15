@@ -127,7 +127,7 @@
                 && value.length > 0
                 && /\D/.test(name)
                 && name.indexOf('transition') === -1
-                && name.indexOf('opacity') === -1
+                && !/[oO]pacity/.test(name)
                 && (this.options.css && Object.keys(this.options.css).indexOf(name) < 0)
                 && value !== parseInt(value, 10);
         };
